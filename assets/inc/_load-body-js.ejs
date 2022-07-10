@@ -1,0 +1,8 @@
+<!-- ▽ body js ▽ -->
+<script src="/assets/js/min/common.min.js"></script>
+<% if (args.pageJs){ %>
+<script src="<%= `/assets/js/min${args.pageJs}` %>"></script>
+<% } %>
+<% if (args.pageJs02){ %>
+<script src="<%= `/assets/js/min${args.pageJs02}` %>"></script>
+<% } %>
