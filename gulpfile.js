@@ -2,9 +2,9 @@
 /* eslint-disable linebreak-style */
 
 /* --------------------------------
-  ★ node.js v10.xxx ★
+  ★ node.js v10.x ★
+  [ npm i ] → [ npx gulp ] or [ npm start ]
 
-  今テンプレートは「EJS」を使っています。
   コードフォーマッターとしてVS codeのプラグイン：EJS Beautify
   を入れて作業することをお勧めします。
 -------------------------------- */
@@ -27,19 +27,21 @@ const sourcemaps = require('gulp-sourcemaps');
 // autoprefixer
 const autoprefixer = require('gulp-autoprefixer');
 
-/*--------------------------------------------------*/
-/* 必要あれば
-/*--------------------------------------------------*/
 // js圧縮 / バベル / リネーム
 const uglify = require('gulp-uglify');
 const babel = require('gulp-babel');
 const rename = require('gulp-rename');
+
+/*--------------------------------------------------*/
+/* 必要あれば
+/*--------------------------------------------------*/
 // cssの見た目を整える
 const csscomb = require('gulp-csscomb');
 // csv→json
 const csv2json = require('gulp-csv2json');
 // ブラウザの自動リロード
 const browserSync = require('browser-sync');
+
 const path = ''; // Vホスト名（例：'http://01_test' or '01_test' ...etc）
 
 
@@ -76,6 +78,28 @@ gulp.task('js', () => {
 });
 
 /*-------------------------*/
+/* ejs
+/*-------------------------*/
+gulp.task('ejs-compile', () => {
+  return gulp
+    .src(["./**/*.ejs", "!./**/_*.ejs"])
+    .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })) // エラーチェック
+    .pipe(ejs())
+    .pipe(
+      htmlbeautify({
+        indent_size: 2, // インデントサイズ
+        indent_char: " ", // インデントに使う文字列はスペース1こ
+        max_preserve_newlines: 0, // 許容する連続改行数
+        preserve_newlines: false, // コンパイル前のコードの改行
+        indent_inner_html: false, // head,bodyをインデント
+        extra_liners: [], // 終了タグの前に改行を入れるタグ。配列で指定。head,body,htmlにはデフォで改行を入れたくない場合は[]。
+      })
+    )
+    .pipe(rename({ extname: ".html" }))
+    .pipe(gulp.dest("./")); // 出力先
+});
+
+/*-------------------------*/
 /* styles
 /*-------------------------*/
 gulp.task('styles', () => {
@@ -107,31 +131,6 @@ gulp.task('bs-reload', done => {
   browserSync.reload();
   done();
 });
-
-
-/*-------------------------*/
-/* ejs
-/*-------------------------*/
-gulp.task('ejs-compile', () => {
-  return gulp
-    .src(["./**/*.ejs", "!./**/_*.ejs"])
-    .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") })) // エラーチェック
-    .pipe(ejs())
-    .pipe(
-      htmlbeautify({
-        indent_size: 2, // インデントサイズ
-        indent_char: " ", // インデントに使う文字列はスペース1こ
-        max_preserve_newlines: 0, // 許容する連続改行数
-        preserve_newlines: false, // コンパイル前のコードの改行
-        indent_inner_html: false, // head,bodyをインデント
-        extra_liners: [], // 終了タグの前に改行を入れるタグ。配列で指定。head,body,htmlにはデフォで改行を入れたくない場合は[]。
-      })
-    )
-    .pipe(rename({ extname: ".html" }))
-    .pipe(gulp.dest("./")); // 出力先
-});
-
-
 
 /*--------------------------------------------------*/
 /* Watch
