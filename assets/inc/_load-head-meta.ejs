@@ -1,4 +1,4 @@
-<% let define = {
+<% let default = {
     SITE_NAME: 'デフォルトサイトネーム',
     SITE_HOST: 'https://Default-Host.com',
     SITE_DES: 'デフォルトディスクリプション',
@@ -9,16 +9,16 @@
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="<%= args.pageDes ? args.pageDes : define.SITE_DES %>" />
-<meta name="keywords" content="<%= args.pageKey ? args.pageKey : define.SITE_KEY %>" />
-<title><%= args.pageTtl ? `${args.pageTtl} | ${define.SITE_NAME}` : define.SITE_NAME %></title>
+<meta name="description" content="<%= args.pageDes ? args.pageDes : default.SITE_DES %>" />
+<meta name="keywords" content="<%= args.pageKey ? args.pageKey : default.SITE_KEY %>" />
+<title><%= args.pageTtl ? `${args.pageTtl} | ${default.SITE_NAME}` : default.SITE_NAME %></title>
 
 <!-- ▽ OGP meta ▽ -->
-<meta property="og:site_name" content="<%= define.SITE_NAME %>" />
-<meta property="og:url" content="<%= args.pageUrl ? `${define.SITE_HOST}${args.pageUrl}` : define.SITE_HOST %>" />
-<meta property="og:title" content="<%= args.pageTtl ? `${args.pageTtl} | ${define.SITE_NAME}` : define.SITE_NAME %>" />
-<meta property="og:description" content="<%= args.pageDes ? args.pageDes : define.SITE_DES %>" />
-<meta property="og:image" content="<%= args.pageImg ? `${define.SITE_HOST}/assets/images${args.pageImg}` : `${define.SITE_HOST}/assets/images/common/ogp.png` %>" />
+<meta property="og:site_name" content="<%= default.SITE_NAME %>" />
+<meta property="og:url" content="<%= args.pageUrl ? `${default.SITE_HOST}${args.pageUrl}` : default.SITE_HOST %>" />
+<meta property="og:title" content="<%= args.pageTtl ? `${args.pageTtl} | ${default.SITE_NAME}` : default.SITE_NAME %>" />
+<meta property="og:description" content="<%= args.pageDes ? args.pageDes : default.SITE_DES %>" />
+<meta property="og:image" content="<%= args.pageImg ? `${default.SITE_HOST}/assets/images${args.pageImg}` : `${default.SITE_HOST}/assets/images/common/ogp.png` %>" />
 <meta property="og:locale" content="ja_JP" />
 <meta property="fb:admins" content="xxxxxxxxx">
 <meta name="twitter:card" content="summary_large_image" />
