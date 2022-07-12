@@ -142,7 +142,7 @@ gulp.task('watch', () => {
   // js圧縮 / バベル / リネーム
   gulp.watch('assets/js/*.js', gulp.task('js'));
   // ejs
-  gulp.watch(['./**/*.ejs', '!./**/_*.ejs'], gulp.task('ejs-compile'));
+  gulp.watch('./**/*.ejs', gulp.task('ejs-compile'));
 
   // sass / js / その他ファイル群 (自動リロード用)
   // gulp.watch('assets/js/*.js', gulp.series(gulp.parallel('bs-reload', 'js')));
