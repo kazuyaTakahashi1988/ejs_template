@@ -64,7 +64,11 @@
       "line-comment-position": 0,
       "eqeqeq": 0,
       "max-statements": 0,
-      "no-shadow": 0
+      "no-shadow": 0,
+      "multiline-comment-style": 0,
+      "spaced-comment": 0,
+      "capitalized-comments": 0,
+      "sort-keys": 0
     },
     "globals": {
       "window": true,
@@ -80,15 +84,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.3.1",
-    "@babel/register": "^7.0.0",
     "@typescript-eslint/eslint-plugin": "^5.30.6",
     "@typescript-eslint/parser": "^5.30.6",
     "autoprefixer": "^9.4.7",
-    "babel-eslint": "^10.0.1",
-    "babel-loader": "^8.0.5",
     "browser-sync": "^2.26.7",
     "eslint": "^5.16.0",
     "eslint-config-next": "12.1.4",
