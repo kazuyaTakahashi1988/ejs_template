@@ -52,7 +52,8 @@
       "multiline-comment-style": 0,
       "spaced-comment": 0,
       "capitalized-comments": 0,
-      "sort-keys": 0
+      "sort-keys": 0,
+      "linebreak-style": 0
     },
     "globals": {
       "window": true,
