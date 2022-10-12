@@ -2,35 +2,36 @@
     // pageTtl: 'トップタイトル',
     // pageDes: 'トップディスクリプション',
     // pageKey: 'トップキー',
-    // pageUrl: '/index.html',
-    // pageImg: '/top/ogp.png',
-    pageCss: '/top.css',
-    pageJs: '/top.min.js',
+    // pageUrl: '',
+    // pageImg: 'top/ogp.png',
+    pageCss: 'top.css',
+    pageJs: 'top.min.js',
     // pageCss02: '',
     // pageJs02: '',
     // is_jquery: true,
+    is_path: '',
     is_home: true,
 }; %>
 
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <%- include('./assets/inc/_load-head-ga') %>
-  <%- include('./assets/inc/_load-head-meta',{ args }) %>
-  <%- include('./assets/inc/_load-head-css',{ args }) %>
-  <%- include('./assets/inc/_load-head-js',{ args }) %>
+  <%- include(`./${args.is_path}assets/inc/_load-head-ga`) %>
+  <%- include(`./${args.is_path}assets/inc/_load-head-meta`,{ args }) %>
+  <%- include(`./${args.is_path}assets/inc/_load-head-css`,{ args }) %>
+  <%- include(`./${args.is_path}assets/inc/_load-head-js`,{ args }) %>
 </head>
 
 <body class="pagetype-home">
-  <%- // include('./assets/inc/_load-body-svg') %>
-  <%- include('./assets/inc/_load-body-header',{ args }) %>
+  <%- // include(`./${args.is_path}assets/inc/_load-body-svg`) %>
+  <%- include(`./${args.is_path}assets/inc/_load-body-header`,{ args }) %>
 
   <div class="contswrap">
     コンテンツ
   </div>
 
-  <%- include('./assets/inc/_load-body-footer',{ args }) %>
-  <%- include('./assets/inc/_load-body-js',{ args }) %>
+  <%- include(`./${args.is_path}assets/inc/_load-body-footer`,{ args }) %>
+  <%- include(`./${args.is_path}assets/inc/_load-body-js`,{ args }) %>
 </body>
 
 </html>

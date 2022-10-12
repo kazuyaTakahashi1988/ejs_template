@@ -1,4 +1,4 @@
 <!-- ▽ head css ▽ -->
-<link rel="stylesheet" href="/assets/css/style.css" />
-<%- args.pageCss && `<link rel="stylesheet" href="/assets/css${args.pageCss}" />` %>
-<%- args.pageCss02 && `<link rel="stylesheet" href="/assets/css${args.pageCss02}" />` %>
+<link rel="stylesheet" href="<%- args.is_path %>assets/css/style.css" />
+<%- args.pageCss && `<link rel="stylesheet" href="${args.is_path}assets/css/${args.pageCss}" />` %>
+<%- args.pageCss02 && `<link rel="stylesheet" href="${args.is_path}assets/css/${args.pageCss02}" />` %>
